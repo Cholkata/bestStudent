@@ -1,0 +1,46 @@
+using System.Xml;
+
+namespace stuff
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string bestStudentName = "";
+            int bestScore = 0;
+
+            while (true)
+            {
+                Console.WriteLine("Enter student name: ");
+                string studentName = Console.ReadLine();
+                if (studentName == "END" || studentName == "end")
+                {
+                    break;
+                }
+                Console.WriteLine("Enter score: ");
+                int score = int.Parse(Console.ReadLine());
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    bestStudentName = studentName;
+                }
+
+                if (score == 100)
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine($"{bestStudentName} is the best student!");
+
+            if (bestScore >= 90)
+            {
+                Console.WriteLine($"{bestStudentName} has {bestScore} points and an excellent degree!");
+            }
+            else
+            {
+                Console.WriteLine($"{bestStudentName} has {bestScore} points.");
+            }
+        }
+    }
+}
